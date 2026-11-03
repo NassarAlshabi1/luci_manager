@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.lucimanager.model.LoginCredentials
 import com.example.lucimanager.model.LuciSession
+import com.example.lucimanager.R
 import com.example.lucimanager.repository.NetworkRepository
 import com.example.lucimanager.utils.NetworkUtils
 import kotlinx.coroutines.launch
@@ -33,12 +34,12 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     fun login(ipAddress: String, username: String, password: String) {
         if (ipAddress.isBlank() || username.isBlank() || password.isBlank()) {
-            _loginState.value = LoginState.Error("Please fill in all fields")
+            _loginState.value = LoginState.Error(getApplication<Application>().getString(R.string.error_empty_fields))
             return
         }
 
         if (!NetworkUtils.isValidIPAddress(ipAddress)) {
-            _loginState.value = LoginState.Error("Please enter a valid IP address")
+            _loginState.value = LoginState.Error(getApplication<Application>().getString(R.string.error_invalid_ip))
             return
         }
 
@@ -51,7 +52,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             _loginState.value = if (result.isSuccess) {
                 LoginState.Success(result.getOrThrow())
             } else {
-                LoginState.Error(result.exceptionOrNull()?.message ?: "Login failed")
+                LoginState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.error_login_failed))
             }
         }
     }

@@ -1,0 +1,189 @@
+<resources>
+    <string name="app_name">مدير OpenWrt</string>
+
+    <!-- Navigation Drawer -->
+    <string name="nav_drawer_open">فتح القائمة</string>
+    <string name="nav_drawer_close">إغلاق القائمة</string>
+    <string name="menu_dashboard">لوحة التحكم</string>
+    <string name="menu_interfaces">الواجهات</string>
+    <string name="menu_wifi">واي فاي</string>
+    <string name="menu_devices">الأجهزة</string>
+    <string name="menu_vpn">VPN</string>
+    <string name="menu_packages">الحزم</string>
+    <string name="menu_system">النظام</string>
+    <string name="menu_notification_settings">الإشعارات</string>
+    <string name="menu_other">أخرى</string>
+    <string name="menu_language">اللغة</string>
+
+    <!-- Language dialog -->
+    <string name="language_dialog_title">لغة التطبيق</string>
+    <string name="language_system">افتراضي النظام</string>
+    <string name="language_english">English</string>
+    <string name="language_arabic">العربية</string>
+
+    <!-- Login Screen -->
+    <string name="login_title">مدير OpenWrt</string>
+    <string name="login_subtitle">إدارة واجهاتك الشبكية</string>
+    <string name="login_logo_desc">شعار OpenWrt</string>
+    <string name="hint_ip_address">عنوان IP للموجّه</string>
+    <string name="hint_username">اسم المستخدم</string>
+    <string name="hint_password">كلمة المرور</string>
+    <string name="button_connect">اتصال</string>
+    <string name="button_discover">البحث تلقائياً</string>
+    <string name="info_wifi_connection">تأكد من أن جهازك متصل بنفس شبكة الواي فاي المتصل بها موجّه OpenWrt.</string>
+
+    <!-- Interface Screen -->
+    <string name="title_network_interfaces">الواجهات الشبكية</string>
+    <string name="action_refresh">تحديث</string>
+    <string name="action_logout">تسجيل الخروج</string>
+    <string name="action_dismiss">إغلاق</string>
+    <string name="status_active">نشط</string>
+    <string name="status_inactive">غير نشط</string>
+    <string name="button_enable">تشغيل</string>
+    <string name="button_disable">إيقاف</string>
+
+    <!-- Dashboard Screen -->
+    <string name="dashboard_model">الطراز</string>
+    <string name="dashboard_hostname">اسم المضيف</string>
+    <string name="dashboard_firmware">البرنامج الثابت</string>
+    <string name="dashboard_kernel">النواة</string>
+    <string name="dashboard_uptime">مدة التشغيل</string>
+    <string name="dashboard_load">حمل المعالج</string>
+    <string name="dashboard_memory">الذاكرة</string>
+    <string name="dashboard_memory_used">المستخدمة</string>
+    <string name="dashboard_memory_free">المتاحة</string>
+    <string name="dashboard_memory_buffered">المخزّنة مؤقتاً</string>
+    <string name="dashboard_system_info">معلومات النظام</string>
+    <string name="dashboard_resources">الموارد</string>
+    <string name="dashboard_days">ي</string>
+    <string name="dashboard_hours">س</string>
+    <string name="dashboard_minutes">د</string>
+
+    <!-- WiFi Screen -->
+    <string name="wifi_title">شبكات الواي فاي</string>
+    <string name="wifi_ssid">SSID</string>
+    <string name="wifi_password">كلمة المرور</string>
+    <string name="wifi_channel">القناة</string>
+    <string name="wifi_tx_power">قوة الإرسال (dBm)</string>
+    <string name="wifi_mode">الوضع</string>
+    <string name="wifi_encryption">التشفير</string>
+    <string name="wifi_frequency">التردد</string>
+    <string name="wifi_enabled">مُفعّلة</string>
+    <string name="wifi_disabled">معطّلة</string>
+    <string name="wifi_edit_title">تعديل الواي فاي</string>
+    <string name="wifi_save">حفظ</string>
+    <string name="wifi_cancel">إلغاء</string>
+    <string name="wifi_apply_success">تم تطبيق إعدادات الواي فاي</string>
+    <string name="wifi_apply_error">فشل تطبيق إعدادات الواي فاي</string>
+    <string name="wifi_no_networks">لم يتم العثور على شبكات واي فاي</string>
+
+    <!-- Devices Screen -->
+    <string name="devices_title">الأجهزة المتصلة</string>
+    <string name="devices_no_devices">لا توجد أجهزة متصلة</string>
+    <string name="devices_wifi_client">عميل واي فاي</string>
+    <string name="devices_wired_client">عميل سلكي</string>
+    <string name="devices_signal">الإشارة</string>
+    <string name="devices_rx">مُستَلَم</string>
+    <string name="devices_tx">مُرسَل</string>
+    <string name="devices_unknown_host">جهاز غير معروف</string>
+
+    <!-- VPN Screen -->
+    <string name="vpn_title">اتصالات VPN</string>
+    <string name="vpn_no_connections">لم يتم العثور على اتصالات VPN</string>
+    <string name="vpn_active">نشط</string>
+    <string name="vpn_inactive">غير نشط</string>
+    <string name="vpn_start">تشغيل</string>
+    <string name="vpn_stop">إيقاف</string>
+    <string name="vpn_toggle_success">تم تبديل VPN %s بنجاح</string>
+    <string name="vpn_toggle_error">فشل تبديل VPN</string>
+    <string name="vpn_type_openvpn">OpenVPN</string>
+    <string name="vpn_type_wireguard">WireGuard</string>
+
+    <!-- Packages Screen -->
+    <string name="packages_title">إدارة الحزم</string>
+    <string name="packages_search_hint">البحث في الحزم…</string>
+    <string name="packages_installed">مُثبّتة</string>
+    <string name="packages_available">متاحة</string>
+    <string name="packages_install">تثبيت</string>
+    <string name="packages_remove">إزالة</string>
+    <string name="packages_update_lists">تحديث القوائم</string>
+    <string name="packages_no_packages">لم يتم العثور على حزم</string>
+    <string name="packages_install_success">تم تثبيت الحزمة %s</string>
+    <string name="packages_remove_success">تم إزالة الحزمة %s</string>
+    <string name="packages_install_error">فشل تثبيت الحزمة</string>
+    <string name="packages_remove_error">فشل إزالة الحزمة</string>
+    <string name="packages_updating_lists">جارٍ تحديث قوائم الحزم…</string>
+    <string name="packages_lists_updated">تم تحديث قوائم الحزم</string>
+
+    <!-- System Actions Screen -->
+    <string name="system_title">النظام</string>
+    <string name="system_reboot">إعادة التشغيل</string>
+    <string name="system_shutdown">إيقاف التشغيل</string>
+    <string name="system_reboot_confirm_title">إعادة تشغيل الموجّه</string>
+    <string name="system_reboot_confirm_message">هل أنت متأكد أنك تريد إعادة تشغيل الموجّه؟ ستفقد جميع الاتصالات مؤقتاً.</string>
+    <string name="system_shutdown_confirm_title">إيقاف تشغيل الموجّه</string>
+    <string name="system_shutdown_confirm_message">هل أنت متأكد أنك تريد إيقاف تشغيل الموجّه؟ ستحتاج إلى وصول فيزيائي لتشغيله مرة أخرى.</string>
+    <string name="system_confirm">تأكيد</string>
+    <string name="system_cancel">إلغاء</string>
+    <string name="system_reboot_success">تم إرسال أمر إعادة التشغيل</string>
+    <string name="system_shutdown_success">تم إرسال أمر إيقاف التشغيل</string>
+    <string name="system_action_error">خطأ في تنفيذ الأمر</string>
+
+    <!-- Discovery -->
+    <string name="discovery_title">البحث عن الموجّه</string>
+    <string name="discovery_searching">جارٍ البحث عن موجّهات على الشبكة…</string>
+    <string name="discovery_found">الموجّهات التي تم العثور عليها</string>
+    <string name="discovery_not_found">لم يتم العثور على موجّهات</string>
+    <string name="discovery_select">تحديد</string>
+    <string name="discovery_cancel">إلغاء</string>
+    <string name="discovery_response_time">%d م.ث</string>
+
+    <!-- Widget -->
+    <string name="widget_name">حالة الموجّه</string>
+    <string name="widget_description">يعرض حالة موجّه OpenWrt</string>
+    <string name="widget_uptime">مدة التشغيل</string>
+    <string name="widget_memory">الذاكرة</string>
+    <string name="widget_clients">العملاء</string>
+    <string name="widget_no_data">لا توجد بيانات</string>
+
+    <!-- Notification Settings -->
+    <string name="notification_settings_title">إعدادات الإشعارات</string>
+    <string name="notification_enable_monitoring">مراقبة الأجهزة</string>
+    <string name="notification_enable_monitoring_desc">تنبيهي عند ظهور أجهزة جديدة على الشبكة</string>
+    <string name="notification_interval">فاصل التحقق</string>
+    <string name="notification_interval_15">15 دقيقة</string>
+    <string name="notification_interval_30">30 دقيقة</string>
+    <string name="notification_interval_60">ساعة واحدة</string>
+    <string name="notification_channel_name">مراقبة الأجهزة</string>
+    <string name="notification_channel_description">إشعارات بشأن الأجهزة الجديدة على الشبكة</string>
+    <string name="notification_new_device_title">جهاز جديد على الشبكة</string>
+    <string name="notification_new_device_text">اتصل %s بالشبكة</string>
+    <string name="notification_monitoring_started">بدأت المراقبة</string>
+    <string name="notification_monitoring_stopped">توقفت المراقبة</string>
+
+    <!-- Error Messages -->
+    <string name="error_empty_fields">يرجى تعبئة جميع الحقول</string>
+    <string name="error_invalid_ip">يرجى إدخال عنوان IP صالح</string>
+    <string name="error_login_failed">فشل تسجيل الدخول. يرجى التحقق من بيانات الاعتماد.</string>
+    <string name="error_connection_failed">فشل الاتصال بالموجّه. يرجى التحقق من الاتصال.</string>
+    <string name="error_no_interfaces">لم يتم العثور على واجهات</string>
+    <string name="error_toggle_failed">فشل تبديل الواجهة</string>
+    <string name="error_loading">خطأ في تحميل البيانات</string>
+    <string name="error_generic">حدث خطأ</string>
+
+    <!-- Success Messages -->
+    <string name="success_login">تم تسجيل الدخول بنجاح!</string>
+    <string name="success_logout">تم تسجيل الخروج بنجاح</string>
+    <string name="success_interface_enabled">تم تشغيل الواجهة بنجاح</string>
+    <string name="success_interface_disabled">تم إيقاف الواجهة بنجاح</string>
+
+    <!-- Common -->
+    <string name="pull_to_refresh">اسحب للأسفل للتحديث</string>
+    <string name="button_retry">إعادة المحاولة</string>
+    <string name="loading">جارٍ التحميل…</string>
+    <string name="cancel">إلغاء</string>
+    <string name="ok">موافق</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+
+</resources>

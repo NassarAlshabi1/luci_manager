@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.lucimanager.model.WifiNetwork
+import com.example.lucimanager.R
 import com.example.lucimanager.repository.NetworkRepository
 import kotlinx.coroutines.launch
 
@@ -38,7 +39,7 @@ class WifiViewModel(application: Application) : AndroidViewModel(application) {
             _state.value = if (result.isSuccess) {
                 WifiState.Success(result.getOrThrow())
             } else {
-                WifiState.Error(result.exceptionOrNull()?.message ?: "Failed to load WiFi networks")
+                WifiState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.error_loading))
             }
         }
     }
@@ -49,9 +50,9 @@ class WifiViewModel(application: Application) : AndroidViewModel(application) {
             val result = repository.updateWifiNetwork(network)
             _editState.value = if (result.isSuccess) {
                 loadWifiNetworks()
-                WifiEditState.Success("WiFi settings applied")
+                WifiEditState.Success(getApplication<Application>().getString(R.string.wifi_apply_success))
             } else {
-                WifiEditState.Error(result.exceptionOrNull()?.message ?: "Failed to update WiFi")
+                WifiEditState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.wifi_apply_error))
             }
         }
     }

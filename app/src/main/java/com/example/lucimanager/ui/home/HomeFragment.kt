@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
@@ -16,6 +19,7 @@ import com.example.lucimanager.R
 import com.example.lucimanager.databinding.FragmentHomeBinding
 import com.example.lucimanager.network.LuciApiClient
 import com.example.lucimanager.repository.NetworkRepository
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -60,6 +64,18 @@ class HomeFragment : Fragment() {
         childNavController?.let { nav ->
             NavigationUI.setupWithNavController(binding.navView, nav)
 
+            // Handle non-navigation items (language) ourselves, keep normal
+            // destination handling identical to NavigationUI's default.
+            binding.navView.setNavigationItemSelectedListener { item ->
+                if (item.itemId == R.id.action_language) {
+                    showLanguageDialog()
+                    binding.drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                } else {
+                    NavigationUI.onNavDestinationSelected(item, nav)
+                }
+            }
+
             nav.addOnDestinationChangedListener { _, destination, _ ->
                 binding.toolbar.title = destination.label
             }
@@ -88,6 +104,33 @@ class HomeFragment : Fragment() {
                 else -> false
             }
         }
+    }
+
+    private fun showLanguageDialog() {
+        val tags = arrayOf("", "en", "ar")
+        val labels = arrayOf(
+            getString(R.string.language_system),
+            getString(R.string.language_english),
+            getString(R.string.language_arabic)
+        )
+        val current = AppCompatDelegate.getApplicationLocales()
+        val currentTag = if (current.isEmpty) "" else current.toLanguageTags()
+        val checkedIndex = tags.indexOfFirst { it == currentTag }.takeIf { it >= 0 } ?: 0
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.language_dialog_title)
+            .setSingleChoiceItems(labels, checkedIndex) { dialog, which ->
+                val tag = tags[which]
+                val locales = if (tag.isEmpty()) {
+                    LocaleListCompat.getEmptyLocaleList()
+                } else {
+                    LocaleListCompat.forLanguageTags(tag)
+                }
+                AppCompatDelegate.setApplicationLocales(locales)
+                dialog.dismiss()
+            }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
     }
 
     private fun performLogout() {

@@ -48,7 +48,9 @@ class RouterWidgetProvider : AppWidgetProvider() {
                     infoResult.getOrNull()?.let { info ->
                         val days = info.uptime / 86400
                         val hours = (info.uptime % 86400) / 3600
-                        views.setTextViewText(R.id.widget_uptime, "${days}d ${hours}h")
+                        val uptimeText = "$days${context.getString(R.string.dashboard_days)} " +
+                                "$hours${context.getString(R.string.dashboard_hours)}"
+                        views.setTextViewText(R.id.widget_uptime, uptimeText)
                         views.setTextViewText(R.id.widget_memory, "${info.memUsagePercent}%")
                     }
 

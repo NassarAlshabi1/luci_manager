@@ -14,7 +14,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="60dp"
         android:src="@drawable/ic_router"
-        android:contentDescription="OpenWrt Logo"
+        android:contentDescription="@string/login_logo_desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

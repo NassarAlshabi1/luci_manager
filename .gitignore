@@ -34,3 +34,6 @@ android/FakeDependency.jar
 
 # Images (non-source)
 
+.kotlin/
+
+# Kotlin 2.x daemon session files

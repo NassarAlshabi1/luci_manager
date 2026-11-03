@@ -51,7 +51,11 @@ class NetworkInterfaceAdapter(
             binding.interfaceName.text = networkInterface.displayName
             
             // Set status
-            binding.statusText.text = if (networkInterface.isActive) "Active" else "Inactive"
+            binding.statusText.text = if (networkInterface.isActive) {
+                binding.root.context.getString(R.string.status_active)
+            } else {
+                binding.root.context.getString(R.string.status_inactive)
+            }
             
             // Simple status indicator
             if (networkInterface.isActive) {
@@ -87,7 +91,11 @@ class NetworkInterfaceAdapter(
                 binding.toggleButton.visibility = View.VISIBLE
                 binding.toggleProgress.visibility = View.GONE
                 
-                val toggleText = if (networkInterface.isActive) "Disable" else "Enable"
+                val toggleText = if (networkInterface.isActive) {
+                    binding.root.context.getString(R.string.button_disable)
+                } else {
+                    binding.root.context.getString(R.string.button_enable)
+                }
                 binding.toggleButton.text = toggleText
                 
                 binding.toggleButton.setOnClickListener {

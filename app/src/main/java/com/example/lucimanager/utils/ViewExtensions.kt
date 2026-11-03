@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
+import com.example.lucimanager.R
 import com.google.android.material.snackbar.Snackbar
 
 /**
@@ -38,7 +39,7 @@ fun Fragment.showSnackbar(
 fun Fragment.showErrorSnackbar(message: String) {
     view?.let { view ->
         val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
-        snackbar.setAction("Dismiss") { snackbar.dismiss() }
+        snackbar.setAction(getString(R.string.action_dismiss)) { snackbar.dismiss() }
         snackbar.show()
     }
 }

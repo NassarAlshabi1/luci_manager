@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.lucimanager.model.VpnConnection
+import com.example.lucimanager.R
 import com.example.lucimanager.repository.NetworkRepository
 import kotlinx.coroutines.launch
 
@@ -38,7 +39,7 @@ class VpnViewModel(application: Application) : AndroidViewModel(application) {
             _state.value = if (result.isSuccess) {
                 VpnState.Success(result.getOrThrow())
             } else {
-                VpnState.Error(result.exceptionOrNull()?.message ?: "Failed to load VPN connections")
+                VpnState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.error_loading))
             }
         }
     }
@@ -51,7 +52,7 @@ class VpnViewModel(application: Application) : AndroidViewModel(application) {
                 _toggleState.value = VpnToggleState.Success(vpn.name)
                 loadVpnConnections()
             } else {
-                _toggleState.value = VpnToggleState.Error(result.exceptionOrNull()?.message ?: "Failed to toggle VPN")
+                _toggleState.value = VpnToggleState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.vpn_toggle_error))
             }
         }
     }

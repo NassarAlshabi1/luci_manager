@@ -4,7 +4,7 @@
 ![Android](https://img.shields.io/badge/Android-Kotlin-green?style=flat-square&logo=android)
 ![Material Design 3](https://img.shields.io/badge/Material%20Design-3.0-orange?style=flat-square&logo=material-design)
 
-Android-приложение для полноценного управления роутером на OpenWrt через LuCI ubus JSON-RPC API. Навигация через боковое меню (Navigation Drawer), локализация RU/EN.
+Android-приложение для полноценного управления роутером на OpenWrt через LuCI ubus JSON-RPC API. Навигация через боковое меню (Navigation Drawer), локализация EN/AR (арабский + английский) с переключением языка внутри приложения.
 
 ![images](img/p6.png)
 ## Возможности
@@ -62,7 +62,7 @@ Android-приложение для полноценного управлени�
 
 ### Прочее
 - Navigation Drawer с 8 разделами
-- Локализация: русский (по умолчанию) + английский
+- Локализация: английский (по умолчанию) + арабский; переключение языка через боковое меню (Language), поддержка RTL
 - Material Design 3, тёмная и светлая темы
 - Безопасное хранение учётных данных (EncryptedSharedPreferences)
 - Поддержка self-signed сертификатов

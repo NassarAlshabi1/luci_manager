@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.lucimanager.model.RouterInfo
+import com.example.lucimanager.R
 import com.example.lucimanager.repository.NetworkRepository
 import kotlinx.coroutines.launch
 
@@ -28,7 +29,7 @@ class DashboardViewModel(application: Application) : AndroidViewModel(applicatio
             _state.value = if (result.isSuccess) {
                 DashboardState.Success(result.getOrThrow())
             } else {
-                DashboardState.Error(result.exceptionOrNull()?.message ?: "Failed to load router info")
+                DashboardState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.error_loading))
             }
         }
     }

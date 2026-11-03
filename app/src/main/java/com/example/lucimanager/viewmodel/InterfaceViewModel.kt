@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.lucimanager.model.NetworkInterface
+import com.example.lucimanager.R
 import com.example.lucimanager.repository.NetworkRepository
 import kotlinx.coroutines.launch
 
@@ -40,7 +41,7 @@ class InterfaceViewModel(application: Application) : AndroidViewModel(applicatio
             _interfaceState.value = if (result.isSuccess) {
                 InterfaceState.Success(result.getOrThrow())
             } else {
-                InterfaceState.Error(result.exceptionOrNull()?.message ?: "Failed to load interfaces")
+                InterfaceState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.error_no_interfaces))
             }
         }
     }
@@ -55,7 +56,7 @@ class InterfaceViewModel(application: Application) : AndroidViewModel(applicatio
                 _toggleState.value = ToggleState.Success(interfaceName, enable)
                 loadInterfaces()
             } else {
-                _toggleState.value = ToggleState.Error(result.exceptionOrNull()?.message ?: "Failed to toggle interface")
+                _toggleState.value = ToggleState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.error_toggle_failed))
             }
         }
     }

@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.lucimanager.model.ConnectedDevice
+import com.example.lucimanager.R
 import com.example.lucimanager.repository.NetworkRepository
 import kotlinx.coroutines.launch
 
@@ -28,7 +29,7 @@ class DevicesViewModel(application: Application) : AndroidViewModel(application)
             _state.value = if (result.isSuccess) {
                 DevicesState.Success(result.getOrThrow())
             } else {
-                DevicesState.Error(result.exceptionOrNull()?.message ?: "Failed to load devices")
+                DevicesState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.error_loading))
             }
         }
     }

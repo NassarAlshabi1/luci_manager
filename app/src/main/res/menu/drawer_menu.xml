@@ -40,6 +40,10 @@
                     android:icon="@drawable/ic_settings"
                     android:title="@string/menu_notification_settings" />
             </group>
+            <item
+                android:id="@+id/action_language"
+                android:icon="@drawable/ic_language"
+                android:title="@string/menu_language" />
         </menu>
     </item>
 

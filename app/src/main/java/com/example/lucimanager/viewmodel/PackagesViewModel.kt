@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.lucimanager.model.OpkgPackage
+import com.example.lucimanager.R
 import com.example.lucimanager.repository.NetworkRepository
 import kotlinx.coroutines.launch
 
@@ -42,7 +43,7 @@ class PackagesViewModel(application: Application) : AndroidViewModel(application
                 allPackages = result.getOrThrow()
                 applyFilter()
             } else {
-                _state.value = PackagesState.Error(result.exceptionOrNull()?.message ?: "Failed to load packages")
+                _state.value = PackagesState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.error_loading))
             }
         }
     }
@@ -66,7 +67,7 @@ class PackagesViewModel(application: Application) : AndroidViewModel(application
                 }
                 _state.value = PackagesState.Success(combined)
             } else {
-                _state.value = PackagesState.Error(searchResult.exceptionOrNull()?.message ?: "Search failed")
+                _state.value = PackagesState.Error(searchResult.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.error_loading))
             }
         }
     }
@@ -88,7 +89,7 @@ class PackagesViewModel(application: Application) : AndroidViewModel(application
                 loadInstalledPackages()
                 PackageActionState.Success(packageName)
             } else {
-                PackageActionState.Error(result.exceptionOrNull()?.message ?: "Install failed")
+                PackageActionState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.packages_install_error))
             }
         }
     }
@@ -101,7 +102,7 @@ class PackagesViewModel(application: Application) : AndroidViewModel(application
                 loadInstalledPackages()
                 PackageActionState.Success(packageName)
             } else {
-                PackageActionState.Error(result.exceptionOrNull()?.message ?: "Remove failed")
+                PackageActionState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.packages_remove_error))
             }
         }
     }
@@ -111,9 +112,9 @@ class PackagesViewModel(application: Application) : AndroidViewModel(application
         viewModelScope.launch {
             val result = repository.updatePackageLists()
             _actionState.value = if (result.isSuccess) {
-                PackageActionState.Success("Lists updated")
+                PackageActionState.Success(getApplication<Application>().getString(R.string.packages_lists_updated))
             } else {
-                PackageActionState.Error(result.exceptionOrNull()?.message ?: "Update failed")
+                PackageActionState.Error(result.exceptionOrNull()?.message ?: getApplication<Application>().getString(R.string.error_generic))
             }
         }
     }
